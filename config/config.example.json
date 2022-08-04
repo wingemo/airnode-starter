@@ -2,126 +2,79 @@
   "ois": [
     {
       "oisFormat": "1.0.0",
-      "title": "CoinGecko-starter-example",
-      "version": "1.0.0",
+      "title": "FX Indicative Rate Service API",
+      "version": "0.1.0",
       "apiSpecifications": {
         "servers": [
           {
-            "url": "https://api.coingecko.com/api/v3"
+            "url": "https://psd2.api.swedbank.com:443"
           }
         ],
         "paths": {
-          "/coins/{id}": {
+        "/partner/sandbox/v1/fx/indicative-rate/rates?currencyPairs={id}": {
             "get": {
               "parameters": [
                 {
-                  "in": "path",
-                  "name": "id"
+                  "in": "query",
+                  "name": "app-id",
+                  "default": "l73760ac9748ce4e7e83bbe9c8172d199c",
+                  "required": true
                 },
                 {
-                  "in": "query",
-                  "name": "localization"
-                },
-                {
-                  "in": "query",
-                  "name": "tickers"
-                },
-                {
-                  "in": "query",
-                  "name": "market_data"
-                },
-                {
-                  "in": "query",
-                  "name": "community_data"
-                },
-                {
-                  "in": "query",
-                  "name": "developer_data"
-                },
-                {
-                  "in": "query",
-                  "name": "sparkline"
-                }
+                  "in": "header",
+                  "default": "1",
+                  "name": "X-Request-ID",
+                  "required": true
+                } 
               ]
+            }
+          },
+        "components": {
+          "securitySchemes": {
+            "{FILL_SECURITY_SCHEME_NAME}": {
+              "in": "{FILL_*}",
+              "type": "{FILL_*}",
+              "name": "{FILL_*}"
             }
           }
         },
-        "components": {
-          "securitySchemes": {}
-        },
-        "security": {}
+        "security": {
+          "{FILL_SECURITY_SCHEME_NAME}": []
+        }
       },
       "endpoints": [
         {
-          "name": "coinMarketData",
+          "name": "/indicative-rate/currencypairs",
           "operation": {
             "method": "get",
-            "path": "/coins/{id}"
+            "path": "/indicative-rate/currencypairs"
           },
           "fixedOperationParameters": [
             {
               "operationParameter": {
                 "in": "query",
-                "name": "localization"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "tickers"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "market_data"
+                "name": "app-id"
               },
               "value": "true"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "community_data"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "developer_data"
-              },
-              "value": "false"
-            },
-            {
-              "operationParameter": {
-                "in": "query",
-                "name": "sparkline"
-              },
-              "value": "false"
             }
           ],
           "reservedParameters": [
             {
-              "name": "_type",
-              "fixed": "int256"
+              "name": "{FILL_*}"
             },
             {
-              "name": "_path",
-              "fixed": "market_data.current_price.usd"
+              "name": "{FILL_*}"
             },
             {
-              "name": "_times",
-              "fixed": "1000000"
+              "name": "{FILL_*}"
             }
           ],
           "parameters": [
             {
-              "name": "coinId",
+              "name": "{FILL_*}",
               "operationParameter": {
-                "in": "path",
-                "name": "id"
+                "in": "header",
+                "name": "X-Request-ID"
               }
             }
           ]
@@ -132,9 +85,9 @@
   "triggers": {
     "request": [
       {
-        "endpointId": "0xf466b8feec41e9e50815e0c9dca4db1ff959637e564bb13fefa99e9f9f90453c",
-        "oisTitle": "CoinGecko-starter-example",
-        "endpointName": "coinMarketData"
+        "endpointId": "{FILL_*}",
+        "oisTitle": "{FILL_OISTITLE}",
+        "endpointName": "{FILL_ENDPOINTNAME}"
       }
     ]
   },
